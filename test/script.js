@@ -1,26 +1,37 @@
-var button = document.getElementById("answer.buttons")
-var question = document.getElementById("question")
-start-btn.addEventListener("click", startQuiz)
-next-btn.addEventListener("click", nextQuestion)
+function startQuiz() {
+var startBtn = document.querySelector("#startBtn");
+
+var question = "question 1, question2, question3, question4"
+var correctAnswer = (qu1a, qu1b, qu1c qu1d qu2a, qu2b, qu2c, qu2d, qu3a, qu3b, qu3c, qu3d, qu4a, qu4b, qu4c, qu4d)
+var correct = ();
+var userSelectsAnswer = ();
+
+function 
+
+var lengthofScore =  onclick="myFunction()">Start Game</button>
+
+startBtn.addEventListener("click", startBtn)
+nextBtn.addEventListener("click", nextBtn)
+console.log('this.works')
+
+startQuiz = "Start"
+nextQuestion = "Next"
 console.log("click", nextQuestion)
 
 function startGame() {
     console.log("StartNow")
     set1stQuestion()
 }
+var nextBtn = document.querySelector("#nextBtn")
+for (var i = 0; i < question.length; i++) {
+    console.log(i);
+  var question = Question[i];
 
-for (var i = 0; i < questionEl.length; i++) {
-    var question = Question[i];
+   if (answersQuestion1){
+answer
 
-    var li = document.createElement("li");
-    li.textContent = todo;
-    todoList.appendChild(li);
-  }
-}
 
-// When form is submitted...
-todoForm.addEventListener("submit", function(event) {
-  event.preventDefault();
+   }
     //function 2ndQuestion() {
 
 
@@ -74,4 +85,4 @@ todoForm.addEventListener("submit", function(event) {
 
 
 
-
+});

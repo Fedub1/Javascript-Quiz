@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body onload="loadquestion()">
+    <form name="myform">
+        <label id="mylabel">Question</label><br>
+        <input type="button" value="option1" name="opt1" onclick="checkans(1)"><br>
+        <input type="button" value="option2" name="opt2" onclick="checkans(2)"><br>
+        <input type="button" value="option3" name="opt3" onclick="checkans(3)"><br>
+        <input type="button" value="option4" name="opt4" onclick="checkans(4)"><br>
+        <input type="button" value="Next" name="nxtbtn"onclick="changequestion()"><br>
+    </form>
+    <script type="text/javascript">
+    i=0;
+        myqs=[["who is the president of US", "Boos", "Trump", "Jack", "Jill", "2" ],
+             ["where is mount everest", "India", "Nepal", "Bhutan", "Srilanka", "2"],
+             ["question", "opt", "opt", "opt", "opt","1"]
+                
+        ];
+
+        function loadquestion()
+        {
+        document.getElementById("mylabel").innerHTML=myqs[i][0];
+        myform.opt1.value=myqs[i][1];    
+        myform.opt2.value=myqs[i][2];  
+        myform.opt3.value=myqs[i][3];  
+        myform.opt4.value=myqs[i][4];  
+        }
+        function changequestion(){
+            i=i+1;
+            loadquestion();
+        }
+function checkans(a){
+    ans=parseInt(myqs[i][5]);
+    if(ans==a)
+        {
+alert("correct ans");
+        }
+else{
+    alert("wrong ans");
+}
+
+}
+    </script>
+</body>
+</html>
+
