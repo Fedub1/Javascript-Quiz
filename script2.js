@@ -3,6 +3,7 @@ const nextButton = document.getElementById('next-btn')
 const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
+const timeLeftDisplay = document.querySelector('#time-left')
 
 let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startGame)
@@ -13,22 +14,25 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
 startButton.classList.add('hide')
-shuffledQuestions = questions.sort(() => Math.random() -.5)
+////shuffledQuestions = questions.sort(() => Math.random() -.5)////
 currentQuestionIndex = 0
 questionContainerElement.classList.remove('hide')
 setNextQuestion()
 }
-var counter = 60;
+document.addEventListener('DOMContentLoaded', () => {
+const timeLeftDisplay = document.querySelector('#time-left')
+const startBtn =  document.querySelector('#start-button')
+var timeLeft = 60
+function countDown () {
 setInterval(function(){
-  document.getElementById('count');
+    if (timeLeft <= 0) {
+        clearInterval(timeLeft = 0)
+    }
+    timeLeftDisplay.innerHTML = timeLeft
+    timeLeft-=1
   
-  if (count === 0){
-    clearInterval(interval);
-    document.getElementById('count').innerHTML='Done';
-    // or...
-    alert("You're out of time!");
-  }
-}, 1000);
+  }, 1000);
+}
 function setNextQuestion(){
     resetState()
 showQuestion(shuffledQuestions[currentQuestionIndex])
@@ -139,4 +143,4 @@ const questions = [
            { text: 'console.log', correct: true},
           ]  
       } , 
-]
+]});
