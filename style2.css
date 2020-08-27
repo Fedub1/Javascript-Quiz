@@ -2,12 +2,14 @@
     box-sizing: border-box;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-
+:root {
+--hue-neutral: 200;
+--hue-wrong: 0;
+--hue-correct: 145;
  }
 
 body {
-  
+  --hue: var(--hue-neutral);
   padding: 0;
   margin: 0;
   display: flex;
@@ -15,7 +17,7 @@ body {
   height: 100vh;
   justify-content: center;
   align-items: center;
- 
+  background-color: hsl(var(--hue)100%, 20%); 
 }
 
 body.correct {
@@ -45,13 +47,27 @@ body.wrong {
 }
 
 .btn {
-
+--hue: var(--hue-neutral);
+border: 1px solid hsl(var(--hue), 100%, 30%);
+background-color: hsl(var(--hue), 100%, 50%);
 border-radius: 5px;
 padding: 5px 10px;
-color: rgb(105, 13, 105);
+color: white;
 outline: none;
 }
 
+.btn-hover {
+    border-color: black;
+}
+
+.btn.correct {
+    --hue: var(--hue-correct);
+    color: black;
+}
+
+.btn.wrong {
+    --hue: var(--hue-wrong);
+}
 .start-btn, .next-btn {
 font-size: 1.5rem;
 font-weight: bold;
