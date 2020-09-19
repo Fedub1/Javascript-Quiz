@@ -1,32 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="style2.css" rel="stylesheet">
-    <script defer src="script2.js"></script>
+    <script defer src="script3.js"></script>
     <title>Quiz App</title>
 </head>
+
 <body>
     <div class="container">
         <h2>Coding Quiz Challenge</h2>
-        <div id= "instructions" >Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your scoretime by ten seconds!</div>
+        <div id="instructions">Try to answer the following code-related questions within the time limit. Keep in mind
+            that incorrect answers will penalize your scoretime by ten seconds!</div>
         <div id="question-container" class="hide">
-        <div id= "question">Question</div>
-        <div id= "answer-buttons" class="btn-grid">
-            <button class="btn"> Answer 1</button>
-            <button class="btn"> Answer 2</button>
-            <button class="btn"> Answer 3</button>
-            <button class="btn"> Answer 4</button>
+            <div id="question">Question</div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn"> Answer 1</button>
+                <button class="btn"> Answer 2</button>
+                <button class="btn"> Answer 3</button>
+                <button class="btn"> Answer 4</button>
             </div>
+
         </div>
         <div class="controls">
-             <h3>Seconds left: <span id="time-left">60</span></h3>
+            <h3>Seconds left: <span id="time-left">60</span></h3>
+            <div id="incorrect" show incorrect answer class="hide"></div>
             <button id="start-btn" class="start-btn btn">Start</button>
             <button id="next-btn" class="next-btn btn hide">Next</button>
         </div>
-     </div>
+        <div id="end game">
+            <input type="text" id="input" class="hide" />
+        </div>
     </div>
 </body>
+
 </html>

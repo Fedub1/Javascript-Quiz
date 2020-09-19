@@ -15,6 +15,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
 startButton.classList.add('hide')
+instructions.classList.add('hide')
 
 
 
@@ -27,13 +28,14 @@ setNextQuestion()
 function setNextQuestion(){
     resetState()
 showQuestion(shuffledQuestions[currentQuestionIndex])
+button.innerText = answer.text
 }
 
 function showQuestion(question) {
 questionElement.innerText = question.question
 question.answers.forEach(answer => {
     const button = document.createElement('button')
-    button.innterText = answer.text
+    button.innerText = answer.text
     button.classList.add('btn')
     if(answer.correct ) {
         button.dataset.correct = answer.correct
@@ -91,11 +93,9 @@ function setStatusClass(element, correct) {
        
       }, 1000)
     }
-    startBtn.addEventListener('click', countDown)
+    startButton.addEventListener('click', countDown)
     
-    });
-
-
+    
 const questions = [
     {
      question:'Commonly used data types do not include:',
