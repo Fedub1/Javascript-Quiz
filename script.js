@@ -20,12 +20,32 @@ function startGame() {
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove('hide');
     setNextQuestion();
+    
 }
+var timeLeft = 60;
+function countDown() {
+
+    setInterval(function () {
+        if (timeLeft <= 0) {
+            clearInterval(timeLeft = 0);
+        }
+        timeLeftDisplay.innerHTML = timeLeft;
+        timeLeft -= 1;
+
+    }, 1000);
+}
+
+
+startButton.addEventListener('click', countDown);
+
+
 function setNextQuestion() {
     resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 
+    
 }
+
 function showQuestion(question) {
     questionElement.innerText = question.question;
     question.answers.forEach(answer => {
@@ -34,7 +54,7 @@ function showQuestion(question) {
         button.classList.add('btn');
         if (answer.correct) {
             button.dataset.correct = answer.correct;
-        }
+        } 
 
         button.addEventListener('click', selectAnswer);
         answerButtonsElement.appendChild(button);
@@ -50,6 +70,15 @@ function resetState() {
 function selectAnswer(e) {
     var selectedButton = e.target;
     var correct = selectedButton.dataset.correct;
+    console.log("selected btn",selectedButton.dataset);
+
+    if (correct != "true"){
+
+        timeLeft = timeLeft - 5;
+
+    }
+
+
     setStatusClass(document.body, correct);
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
@@ -57,7 +86,7 @@ function selectAnswer(e) {
     if (shuffledQuestions.length > currentQuestionIndex + 1) {
         nextButton.classList.remove('hide');
     } else {
-        startButton.innerText = 'Restart';
+        startButton.innerText = 'Game Over';
         startButton.classList.remove('hide');
     }
 
@@ -74,25 +103,7 @@ function clearStatusClass(element) {
     element.classList.remove('correct');
     element.classList.remove('wrong');
 
-    var timeLeft = 60;
-    function countDown() {
-
-        setInterval(function () {
-            if (timeLeft <= 0) {
-                clearInterval(timeLeft = 0);
-            }
-            timeLeftDisplay.innerHTML = timeLeft;
-            timeLeft -= 1;
-
-        }, 1000);
-    }
-    document.getElementById('incorrect').addEventListener('click', function () {
-        sec -= 5;
-        document.getElementById('timeLeft').innerHTML = '00:' + sec;
-    });
-
-    startButton.addEventListener('click', countDown);
-
+    
 }
 var questions = [
     {
@@ -140,11 +151,3 @@ var questions = [
             { text: 'console.log', correct: true },
         ]
     }];
-
-const initials = localStorage.getItem("input");
-function savedText() {
-
-
-    var text = document.getElementById('input').value;
-    localStorage.setItem("text", JSON.stringify(item));
-};
