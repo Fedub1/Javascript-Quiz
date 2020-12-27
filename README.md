@@ -17,6 +17,8 @@ MIT
 # Links
 https://fedub1.github.io/Javascript-Quiz/
 
+![JavascriptQuiz](https://user-images.githubusercontent.com/68029856/103162228-0ba94b00-47bc-11eb-8859-448eaf3d7a35.PNG)
+
 
 
 
